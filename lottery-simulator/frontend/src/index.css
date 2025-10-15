@@ -1,0 +1,169 @@
+/* 引入响应式样式 */
+@import './styles/responsive.css';
+
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Ant Design 自定义主题 */
+.ant-layout {
+  min-height: 100vh;
+}
+
+.ant-layout-header {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ant-layout-sider {
+  background: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.ant-layout-content {
+  background: #f5f5f5;
+  padding: 24px;
+}
+
+/* 自定义按钮样式 */
+.ant-btn-primary {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(45deg, #5a6fd8, #6a4190);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 自定义卡片样式 */
+.ant-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  background: linear-gradient(90deg, #f8f9ff 0%, #f5f7ff 100%);
+}
+
+/* 自定义表格样式 */
+.ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ant-table-thead > tr > th {
+  background: linear-gradient(90deg, #f8f9ff 0%, #f5f7ff 100%);
+  border-bottom: 2px solid #e6f7ff;
+}
+
+/* 自定义表单样式 */
+.ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ant-input, .ant-input-password {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.ant-input:focus, .ant-input-password:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* 自定义消息提示样式 */
+.ant-message {
+  top: 80px;
+}
+
+.ant-message-notice {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 自定义模态框样式 */
+.ant-modal {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ant-modal-header {
+  background: linear-gradient(90deg, #f8f9ff 0%, #f5f7ff 100%);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 自定义标签页样式 */
+.ant-tabs-tab {
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+}
+
+.ant-tabs-tab-active {
+  background: linear-gradient(90deg, #f8f9ff 0%, #f5f7ff 100%);
+}
+
+/* 自定义统计数值样式 */
+.ant-statistic-content {
+  color: #333;
+}
+
+.ant-statistic-content-value {
+  font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .ant-layout-content {
+    padding: 16px;
+  }
+  
+  .ant-card {
+    margin-bottom: 16px;
+  }
+  
+  .ant-table {
+    font-size: 12px;
+  }
+}
+
+/* 加载状态样式 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* 空状态样式 */
+.empty-container {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.empty-container .ant-empty-description {
+  color: #999;
+}

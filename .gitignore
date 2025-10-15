@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+
+# Node / Frontend
+lottery-simulator/frontend/node_modules/
+lottery-simulator/frontend/dist/
+lottery-simulator/frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Databases / Artifacts
+lottery-simulator/backend/lottery.db
+lottery-simulator/backend/lottery_simulator.db
+
+# Project-specific
+stage_out.txt

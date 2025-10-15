@@ -1,0 +1,389 @@
+/* 响应式设计样式 */
+
+/* 基础响应式断点 */
+:root {
+  --mobile-breakpoint: 576px;
+  --tablet-breakpoint: 768px;
+  --desktop-breakpoint: 992px;
+  --large-desktop-breakpoint: 1200px;
+}
+
+/* 移动端优化 */
+@media (max-width: 576px) {
+  /* 布局调整 */
+  .ant-layout-sider {
+    position: fixed !important;
+    z-index: 1000;
+    height: 100vh;
+    left: -200px;
+    transition: left 0.3s ease;
+  }
+  
+  .ant-layout-sider.ant-layout-sider-collapsed {
+    left: -80px;
+  }
+  
+  .ant-layout-sider.mobile-visible {
+    left: 0 !important;
+  }
+  
+  /* 主内容区域调整 */
+  .ant-layout-content {
+    margin-left: 0 !important;
+    padding: 12px !important;
+  }
+  
+  /* 头部调整 */
+  .ant-layout-header {
+    padding: 0 16px !important;
+    height: 56px !important;
+    line-height: 56px !important;
+  }
+  
+  /* 卡片间距调整 */
+  .ant-card {
+    margin-bottom: 12px !important;
+  }
+  
+  /* 表格响应式 */
+  .ant-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .ant-table {
+    min-width: 600px;
+  }
+  
+  /* 表单调整 */
+  .ant-form-item {
+    margin-bottom: 16px !important;
+  }
+  
+  /* 按钮组调整 */
+  .ant-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .ant-btn-group .ant-btn {
+    flex: 1;
+    min-width: 80px;
+  }
+  
+  /* 统计卡片调整 */
+  .stats-card {
+    text-align: center;
+    padding: 16px 8px !important;
+  }
+  
+  .stats-card .ant-statistic-title {
+    font-size: 12px !important;
+  }
+  
+  .stats-card .ant-statistic-content {
+    font-size: 18px !important;
+  }
+  
+  /* 彩票号码球调整 */
+  .lottery-ball {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 12px !important;
+    line-height: 32px !important;
+  }
+  
+  /* 模态框调整 */
+  .ant-modal {
+    margin: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+  
+  /* 抽屉调整 */
+  .ant-drawer-content-wrapper {
+    width: 280px !important;
+  }
+}
+
+/* 平板端优化 */
+@media (min-width: 577px) and (max-width: 768px) {
+  .ant-layout-content {
+    padding: 16px !important;
+  }
+  
+  .ant-col-xs-24 {
+    width: 100% !important;
+  }
+  
+  .ant-col-sm-12 {
+    width: 50% !important;
+  }
+  
+  /* 表格调整 */
+  .ant-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  /* 统计卡片调整 */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* 桌面端优化 */
+@media (min-width: 769px) {
+  .ant-layout-content {
+    padding: 24px !important;
+  }
+  
+  /* 统计卡片调整 */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  
+  /* 表格优化 */
+  .ant-table-wrapper {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1200px) {
+  .ant-layout-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px !important;
+  }
+  
+  /* 内容区域最大宽度限制 */
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* 通用响应式工具类 */
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block !important;
+  }
+  
+  .desktop-only {
+    display: none !important;
+  }
+  
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  /* 增大可点击区域 */
+  .ant-btn {
+    min-height: 44px !important;
+    padding: 8px 16px !important;
+  }
+  
+  .ant-input {
+    min-height: 44px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .ant-select-selector {
+    min-height: 44px !important;
+  }
+  
+  /* 移除hover效果 */
+  .ant-btn:hover,
+  .ant-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .ant-card {
+    border: 2px solid #000 !important;
+  }
+  
+  .ant-btn-primary {
+    background-color: #000 !important;
+    border-color: #000 !important;
+  }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #141414;
+    --card-bg: #1f1f1f;
+    --text-color: #ffffff;
+    --border-color: #434343;
+  }
+  
+  body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+  }
+  
+  .ant-card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .ant-layout-sider,
+  .ant-layout-header,
+  .ant-btn,
+  .no-print {
+    display: none !important;
+  }
+  
+  .ant-layout-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .ant-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+  
+  .ant-table {
+    font-size: 12px !important;
+  }
+  
+  .ant-table th,
+  .ant-table td {
+    padding: 4px !important;
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 移动端滚动条隐藏 */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+/* 加载状态优化 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loading-text {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 错误状态优化 */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  padding: 24px;
+}
+
+.error-icon {
+  font-size: 48px;
+  color: #ff4d4f;
+}
+
+.error-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #262626;
+  margin: 0;
+}
+
+.error-description {
+  font-size: 14px;
+  color: #8c8c8c;
+  margin: 8px 0 16px 0;
+}
+
+/* 空状态优化 */
+.empty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+  padding: 24px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #d9d9d9;
+}
+
+.empty-title {
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+.empty-description {
+  font-size: 14px;
+  color: #8c8c8c;
+  margin: 8px 0 16px 0;
+}
